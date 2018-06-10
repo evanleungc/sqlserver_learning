@@ -1,0 +1,46 @@
+--Unique Index
+
+--Primary key is also a unique index
+--If the unique constraint is added, the unique index is added behind the screen
+
+DROP TABLE INDEX_TEST2
+
+CREATE TABLE INDEX_TEST2
+(
+ID INT primary key,
+NAME NVARCHAR(20),
+GENDER NVARCHAR(20)
+)
+
+INSERT INTO INDEX_TEST2 VALUES(3,'JOHN', 'MALE')
+INSERT INTO INDEX_TEST2 VALUES(5,'MIKE', 'MALE')
+INSERT INTO INDEX_TEST2 VALUES(2,'AMY', 'FEMALE')
+
+--Create a unique non-clustred index.
+DROP TABLE INDEX_TEST2
+
+CREATE TABLE INDEX_TEST2
+(
+ID INT,
+NAME NVARCHAR(20),
+GENDER NVARCHAR(20)
+)
+
+INSERT INTO INDEX_TEST2 VALUES(3,'JOHN', 'MALE')
+INSERT INTO INDEX_TEST2 VALUES(5,'MIKE', 'MALE')
+INSERT INTO INDEX_TEST2 VALUES(2,'AMY', 'FEMALE')
+
+--Create a Unique index with Unique constraint
+ALTER TABLE INDEX_TEST2
+ADD CONSTRAINT UQ_INDEX_TEST2_ID
+UNIQUE (ID)
+
+sp_HelpIndex INDEX_TEST2 --Add a unqiue constraint is a unique NON-CLUSTRED constraint
+
+--YOU can change it to a clustred one
+
+ALTER TABLE INDEX_TEST2
+ADD CONSTRAINT UQ_INDEX_TEST2_ID
+UNIQUE CLUSTERED(ID)
+
+DROP INDEX INDEX_TEST2.UQ_INDEX_TEST2_ID --FAILED

@@ -1,0 +1,38 @@
+--Math Functions
+
+--1. ABS
+PRINT ABS(-1)
+
+--2. CEILING/FLOOR: CEILING:RETURN NEXT HIGHEST INTEGER, FLOOR: RETURN NEXT LOWER INTEGER
+PRINT CEILING(15.2)
+PRINT CEILING(-15.2) --RETURN -15
+PRINT FLOOR(15.6)
+PRINT FLOOR(-15.6) -- RETURN -16
+
+--3. POWER
+PRINT POWER(2, 3)
+
+--4. SQUARE
+PRINT SQUARE(2)
+
+--5. SQRT
+PRINT SQRT(8)
+
+--6. RAND: Random number from 0 and 1, RAND(N), N is random seed
+PRINT RAND()
+PRINT RAND(1)
+PRINT RAND(1)
+
+PRINT FLOOR(RAND() * 100) -- Random numbers between 1 to 100
+
+DECLARE @START INT
+SET @START = 1
+WHILE (@START <= 10)
+BEGIN
+	PRINT FLOOR(RAND() * 100)
+	SET @START = @START + 1
+END
+--7. ROUND
+PRINT ROUND(850.556, 2)
+PRINT ROUND(850.556, 2, 1) --Truncate to 2 decimal places if the third parameter is 1
+PRINT ROUND(850.556, -2) --Round to the left from the decimal point
