@@ -1,7 +1,7 @@
 --Clustred and Unclustred Indexes
 --A cluster index determines the physical order of data in a table. For this reason, a table can have only ONE clustered index.
 --A uncluster index will not affect the physical order and it can be more than 1 in the table
---Clustered index is fasted than unclustred index becaue the clustred index has to refer back to the table, if the selected column is not present in the index
+--Clustered index is faster than unclustred index becaue the unclustred index has to refer back to the table, if the selected column is not presented in the index
 --Clustered index is in the table itself but unclustred index is stored in another place so it faster and consume less space
 --A primary key is a clustred index
 sp_HelpIndex tblEmployee

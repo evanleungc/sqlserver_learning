@@ -20,7 +20,7 @@ BEGIN
 	Insert into #PersonDetatils2 Values('Tom')
 
 	SELECT NAME FROM tempdb..sysobjects
-	where name like '#PersonDetatils2%' ----YOU CANNOT FIND RESULTS
+	where name like '#PersonDetatils2%' ----YOU CAN FIND RESULTS HERE
 
 	Select * From #PersonDetatils2
 END

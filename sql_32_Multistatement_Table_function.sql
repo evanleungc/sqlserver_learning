@@ -6,7 +6,7 @@ RETURNS TABLE
 AS
 RETURN (SELECT Id, Name, Cast(DateOfBirth as Date) DOB FROM tblDateSample)
 
- FUNCTION fn_Get_DateSample_Multivalue()
+CREATE FUNCTION fn_Get_DateSample_Multivalue()
 RETURNS @TABLE TABLE (Id int, Name nvarchar(20), DOB Date)
 AS
 BEGIN
