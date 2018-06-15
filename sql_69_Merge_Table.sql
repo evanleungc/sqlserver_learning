@@ -1,0 +1,41 @@
+--Merge
+MERGE [TARGET] AS T
+USING [SOURCE] AS S
+ON [JOIN_CONDITIONS]
+WHEN MATCHID THEN
+	[UPDATE STATEMENT]
+WHEN NOT MATCHED BY TARGET THEN
+	[INSERT STATEMENT]
+WHEN NOT MATCHED BY SOURCE THEN
+	[DELETE STATEMENT]
+
+DROP TABLE StudentSource
+DROP TABLE StudentTarget
+
+CREATE TABLE StudentSource
+(
+Id int primary key,
+Name nvarchar(20)
+)
+GO
+INSERT INTO StudentSource values(1, 'Mike')
+INSERT INTO StudentSource values(2, 'Sara')
+
+CREATE TABLE StudentTarget
+(
+Id int primary key,
+Name nvarchar(20)
+)
+GO
+INSERT INTO StudentTarget values(1, 'Mike M')
+INSERT INTO StudentTarget values(2, 'JOHN')
+
+MERGE StudentTarget AS T
+USING StudentSource AS S
+ON T.ID = S.ID
+WHEN MATCHED THEN 
+	UPDATE SET T.NAME = S.NAME
+WHEN NOT MATCHED BY TARGET THEN
+	INSERT (ID, NAME) VALUES (S.ID, S.NAME)
+WHEN NOT MATCHED BY SOURCE THEN
+	DELETE; --Must teminated by ;
