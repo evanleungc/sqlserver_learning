@@ -1,0 +1,1 @@
+--In a database, a deadlock occurs when two or more processes have a resource locked

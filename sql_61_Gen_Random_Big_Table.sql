@@ -34,7 +34,7 @@ GO
 DECLARE @Id int
 Set @Id = 1
 
-While(@Id <= 10000)
+While(@Id <= 50000)
 Begin
 	Insert into tblProduct3 values('Product - ' + CAST(@Id as nvarchar(20)), 
 	'Product - ' +CAST(@Id as nvarchar(20)) + 'Description')
@@ -56,7 +56,7 @@ Declare @UpperUnitPrice int
 Declare @LowerUnitPrice int
 Declare @UpperQuantitySold int
 Declare @LowerQuantitySold int
-Set @UpperProductId = 8500
+Set @UpperProductId = 45000
 Set @LowerProductId = 1
 Set @UpperUnitPrice = 10
 Set @LowerUnitPrice = 1
@@ -67,7 +67,7 @@ PRINT Round((@UpperProductId - @LowerProductId) * Rand(), 0)
 Declare @Count int
 Set @Count = 1
 
-While(@Count < 15000)
+While(@Count < 70000)
 Begin
 	select @RandomProductId = Round((@UpperProductId - @LowerProductId) * Rand(), 0)
 	select @RandomUnitPrice = Round((@UpperUnitPrice - @LowerUnitPrice) * Rand(), 0)
