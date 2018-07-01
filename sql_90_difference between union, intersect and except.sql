@@ -1,3 +1,4 @@
 /*
 Union Operator returns all the uinique rows from both the left and the right query
 */
+
