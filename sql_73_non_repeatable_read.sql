@@ -27,6 +27,7 @@ commit transaction
 
 --*************Use the repeatable read
 set transaction isolation level repeatable read
+update tblInventory set ItemsInStock = 10 Where Id = 1
 
 Begin Transaction
 select itemsinstock from tblInventory
